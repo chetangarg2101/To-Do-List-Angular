@@ -16,6 +16,7 @@ export interface TodoItem {
   imports: [RouterOutlet, NgFor, NgClass]
 })
 export class AppComponent {
+  title = 'angular';
   todoList: TodoItem[] = [];
   newTask: string = '';
 
@@ -35,7 +36,7 @@ export class AppComponent {
         task: text.trim(),
         completed: false
       };
-      this.todoList.push(newTodoItem);
+      this.todoList.unshift(newTodoItem);
       this.saveTodoList(); // ✅ Save after adding a new task
       if (this.todoInputRef && this.todoInputRef.nativeElement) {
         this.todoInputRef.nativeElement.value = '';
